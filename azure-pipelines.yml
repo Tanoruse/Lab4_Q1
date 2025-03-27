@@ -28,9 +28,6 @@ steps:
     packageType: 'sdk'
     version: '8.0.x'
 
-- script: dotnet restore
-  displayName: 'Restore NuGet packages'
-
 - script: dotnet build --configuration $(buildConfiguration)
   displayName: 'Build project'
 
@@ -44,5 +41,5 @@ steps:
   inputs:
     command: push
     packagesToPush: '$(Build.ArtifactStagingDirectory)/*.nupkg'
-    publishVstsFeed: 'https://pkgs.dev.azure.com/tanoruse/_packaging/tanoruse/nuget/v3/index.json'  # Use the correct feed URL
+    publishVstsFeed: 'tanoruse'  # Correct feed name (use only the feed name, not the full URL)
   displayName: 'Push package to Azure Artifacts'
