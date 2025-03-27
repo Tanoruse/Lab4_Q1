@@ -41,5 +41,5 @@ steps:
   inputs:
     command: push
     packagesToPush: '$(Build.ArtifactStagingDirectory)/*.nupkg'
-    publishVstsFeed: 'tanoruse'  # Correct feed name (use only the feed name, not the full URL)
+    publishVstsFeed: 'tanoruse/tanoruse'  # Correct feed name (use only the feed name, not the full URL)
   displayName: 'Push package to Azure Artifacts'
