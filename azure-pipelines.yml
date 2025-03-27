@@ -44,5 +44,5 @@ steps:
   inputs:
     command: push
     packagesToPush: '$(Build.ArtifactStagingDirectory)/*.nupkg'
-    publishVstsFeed: 'https://pkgs.dev.azure.com/tanoruse/_packaging/your-feed-name/nuget/v3/index.json'  # Use the correct feed URL
+    publishVstsFeed: 'https://pkgs.dev.azure.com/tanoruse/_packaging/tanoruse/nuget/v3/index.json'  # Use the correct feed URL
   displayName: 'Push package to Azure Artifacts'
