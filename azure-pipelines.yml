@@ -7,7 +7,7 @@ trigger:
 - main  # or use 'master' if that's your branch name
 
 pool:
-  name: Default  # Name of your self-hosted agent pool
+  name: COMP367  # Name of your self-hosted agent pool
 
 variables:
   buildConfiguration: 'Release'
@@ -41,5 +41,5 @@ steps:
   inputs:
     command: push
     packagesToPush: '$(Build.ArtifactStagingDirectory)/*.nupkg'
-    publishVstsFeed: 'tanoruse/tanoruse'  # Correct feed name (use only the feed name, not the full URL)
+    publishVstsFeed: 'library_Lab4'  # Correct feed name (use only the feed name, not the full URL)
   displayName: 'Push package to Azure Artifacts'
