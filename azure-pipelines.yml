@@ -1,0 +1,47 @@
+trigger:
+- main  # or your preferred branch
+
+pool:
+  name: COMP367  # your self-hosted agent pool name
+
+variables:
+  buildConfiguration: 'Release'
+  packageOutput: '$(Build.ArtifactStagingDirectory)'
+
+steps:
+- task: UseDotNet@2
+  displayName: "Use .NET 8 SDK"
+  inputs:
+    packageType: 'sdk'
+    version: '8.0.x'
+    installationPath: $(Agent.ToolsDirectory)/dotnet
+
+- task: DotNetCoreCLI@2
+  displayName: "Restore NuGet packages"
+  inputs:
+    command: 'restore'
+    projects: '**/*.csproj'
+
+- task: DotNetCoreCLI@2
+  displayName: "Build solution"
+  inputs:
+    command: 'build'
+    projects: '**/*.csproj'
+    arguments: '--configuration $(buildConfiguration)'
+
+- task: DotNetCoreCLI@2
+  displayName: "Pack NuGet package"
+  inputs:
+    command: 'pack'
+    packagesToPack: '**/*.csproj'
+    versioningScheme: 'off'
+    configuration: '$(buildConfiguration)'
+    outputDir: '$(packageOutput)'
+
+- task: NuGetCommand@2
+  displayName: "Push package to Azure Artifacts"
+  inputs:
+    command: 'push'
+    publishVstsFeed: 'tanoruse0978'  # your Azure Artifacts feed name
+    allowPackageConflicts: true
+    packagesToPush: '$(packageOutput)/*.nupkg'
