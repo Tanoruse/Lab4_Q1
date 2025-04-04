@@ -37,11 +37,3 @@ steps:
     versioningScheme: 'off'
     configuration: '$(buildConfiguration)'
     outputDir: '$(packageOutput)'
-
-- task: NuGetCommand@2
-  displayName: "Push package to Azure Artifacts"
-  inputs:
-    command: 'push'
-    publishVstsFeed: 'tanoruse0978'  # your Azure Artifacts feed name
-    allowPackageConflicts: true
-    packagesToPush: '$(packageOutput)/*.nupkg'
