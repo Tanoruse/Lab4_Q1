@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
+  <metadata>
+    <id>ShowCase</id>
+    <version>1.0.0</version>
+    <authors>ShowCase</authors>
+    <description>Package Description</description>
+    <repository type="git" commit="e3eec349c42f04f2c667e56eb377be60ed9d490d" />
+    <dependencies>
+      <group targetFramework="net8.0">
+        <dependency id="ClassLibrary1" version="1.0.0" exclude="Build,Analyzers" />
+      </group>
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="C:\Users\samue\source\repos\Lab4_DevOps\ShowCase\bin\Release\net8.0\ShowCase.runtimeconfig.json" target="lib\net8.0\ShowCase.runtimeconfig.json" />
+    <file src="C:\Users\samue\source\repos\Lab4_DevOps\ShowCase\bin\Release\net8.0\ShowCase.dll" target="lib\net8.0\ShowCase.dll" />
+  </files>
+</package>
